@@ -1,55 +1,40 @@
-*,
-*::before,
-*::after{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    list-style: none; */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --bg-color: #FFFAE6;
+    --main-color: #FF9F66;
+    --text-color: #002379;
 }
 
-:root{
-    --bg-color: #f5f5f5;
-    --main-color: #6b7280;
-    --text-color: #6f172a;
-    --other-color: #334155;
-    --big-font: 4.3rem;
-    --h2-font: 2.2rem;
-    --p-font: 1rem;
-}
-body{
+body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url() no-repeat;
-    background-position: center;
-    background-size: cover;
     background-color: var(--bg-color);
+    background-image: url(https://mardoqueiro.github.io/all_images/swegga/Study.Wallpaper.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.container{
-    width: 400px;
-    height: 400px;
+h1 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.todo-container {
+    width: 450px;
+    height: 200px;
     padding: 30px;
     background: transparent;
     border: 2px solid var(--text-color);
     border-radius: 20px;
     backdrop-filter: blur(15px);
-}
-
-h1 {
-    color: var(--text-color);
-    justify-items: space-between;
-    margin-bottom: 36px;
-}
-
-.input {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 25px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .todo-input {
@@ -64,111 +49,30 @@ h1 {
     margin-right: 10px;
 }
 
-.todo-input::placeholder {
-    color: var(--text-color);
-}
-
-.add-button {
+.add-btn,
+.sort-btn {
     border: none;
     outline: none;
     background: var(--bg-color);
     color: var(--text-color);
-    font-size: 35px;
+    font-size: 1.5rem;
     cursor: pointer;
-    border-radius: 40px;
-    width: 40px;
-}
-
-.todo {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--bg-color);
-    border: 2px solid var(--text-color);
     border-radius: 5px;
-    padding: 10px 12px;
-    margin-bottom: 5px;
+    min-width: 60px;
 }
 
-.todo:first-child{
-    margin-top: 0;
-}
-
-.todo:last-child{
-    margin-bottom: 0;
-}
-
-.todo:hover {
+.add-btn:hover,
+.sort-btn:hover {
     background-color: var(--text-color);
+    color: var(--bg-color);
 }
 
-.todo label {
-    cursor: pointer;
-    width: fit-content;
-    display: flex;
-    align-items: center;
-    font-family: 'Poppins' sans-serif;
-    color: var(--text-color);
-}
-
-.todo span {
-    padding-left: 28px;
-    position: relative;
-    cursor: pointer;
-}
-
-span::before {
-    content: "";
-    height: 20px;
-    width: 20px;
-    position: absolute;
-    margin-left: -30px;
-    border-radius: 100px;
-    border: 2px solid var(--text-color);
-}
-
-input [type='checkbox'] {
-    visibility: hidden;
-}
-
-input:checked + span{
-    text-decoration: line-through;
-}
-
-.todo:hover input:checked + span::before, input:checked + span::before {
-    background: url() 50% 50% no-repeat var(--main-color);
-    border-radius: var(--main-color);
-}
-
-.todo:hover span::before {
-    border-color: #f5f5f5;
-}
-
-.todo .delete-btn {
-    background: transparent;
-}
-
-.todos-container {
-    height: 300px;
-    overflow: overlay;
-}
-
-.todos-container::-webkit-scrollbar-track {
-    background: rgb(247, 247, 247);
-    border-radius: 20px;
-}
-
-.todos-container::-webkit-scrollbar {
-    width: 0;
-}
-
-.todos-container::-webkit-scrollbar {
-    width: 7px;
-}
-
-.todos-container::-webkit-scrollbar-thumb {
-    background: var(--text-color);
+.todo-list {
+    flex: 1;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .filters {
@@ -186,19 +90,7 @@ input:checked + span{
     cursor: pointer;
 }
 
-.filter.active filter:hover {
-    background-color: var(--text-color);
-}
-
-.delete-all {
-    display: flex;
-    color: #f5f5f5;
-    padding: 7px 15px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.delete-all:hover {
-    border-radius: 50px;
-    background-color: #334155;
+.todo-list li input:checked + span {
+    text-decoration: line-through;
+    color: var(--text-color);
 }
